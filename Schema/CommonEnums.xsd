@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://www.mesa.org/xml/B2MML" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.mesa.org/xml/B2MML/CommonEnums" elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+    <!-- Include the Core Components schema in the default namespace  -->
+    <xsd:include schemaLocation="B2MML-CoreComponents.xsd"/>
+    <!-- Import the Common Extension Schema                 -->
+    <xsd:import namespace="http://www.mesa.org/xml/B2MML-AllExtensions" schemaLocation="B2MML-CommonExtensions.xsd"/>
+
+    <xsd:simpleType name="AssemblyRelationshipEnum">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Permanent"/>
+            <xsd:enumeration value="Transient"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="AssemblyTypeEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Physical"/>
+            <xsd:enumeration value="Logical"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+    <!--     -->
+    <xsd:simpleType name="CapabilityTypeEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Used"/>
+            <xsd:enumeration value="Unused"/>
+            <xsd:enumeration value="Total"/>
+            <xsd:enumeration value="Committed"/>
+            <xsd:enumeration value="Available"/>
+            <xsd:enumeration value="Unattainable"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+    <!--     -->
+    <xsd:simpleType name="ClassPropertyTypeEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                Defines the type of the property. Defined types are
+                - ClassType: the property value is defined for the class and there is no value associated with an
+                instance;
+                - InstanceType: the property value of the class is undefined; and
+                - DefaultType: the property value is defined for the class as the default instance value, but individual
+                instances of the class may redefine specific values.
+            </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="ClassType"/>
+            <xsd:enumeration value="InstanceType"/>
+            <xsd:enumeration value="DefaultType"/>
+            <xsd:enumeration value="Inventory"/>
+            <xsd:enumeration value="Mixed"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="DataTypeEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Amount"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="BinaryObject"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="Code"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="DateTime"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="Identifier"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="Indicator"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="Measure"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="Numeric"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="Quantity"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="Text"/>
+            <!-- UN/CEFACT Core Component Type -->
+            <xsd:enumeration value="string"/>
+            <xsd:enumeration value="byte"/>
+            <xsd:enumeration value="unsignedByte"/>
+            <xsd:enumeration value="binary"/>
+            <xsd:enumeration value="integer"/>
+            <xsd:enumeration value="positiveInteger"/>
+            <xsd:enumeration value="negativeInteger"/>
+            <xsd:enumeration value="nonNegativeInteger"/>
+            <xsd:enumeration value="nonPositiveInteger"/>
+            <xsd:enumeration value="int"/>
+            <xsd:enumeration value="unsignedInt"/>
+            <xsd:enumeration value="long"/>
+            <xsd:enumeration value="unsignedLong"/>
+            <xsd:enumeration value="short"/>
+            <xsd:enumeration value="unsignedShort"/>
+            <xsd:enumeration value="decimal"/>
+            <xsd:enumeration value="float"/>
+            <xsd:enumeration value="double"/>
+            <xsd:enumeration value="boolean"/>
+            <xsd:enumeration value="time"/>
+            <xsd:enumeration value="timeInstant"/>
+            <xsd:enumeration value="timePeriod"/>
+            <xsd:enumeration value="duration"/>
+            <xsd:enumeration value="date"/>
+            <xsd:enumeration value="dateTime"/>
+            <xsd:enumeration value="month"/>
+            <xsd:enumeration value="year"/>
+            <xsd:enumeration value="century"/>
+            <xsd:enumeration value="recurringDay"/>
+            <xsd:enumeration value="recurringDate"/>
+            <xsd:enumeration value="recurringDuration"/>
+            <xsd:enumeration value="Name"/>
+            <xsd:enumeration value="QName"/>
+            <xsd:enumeration value="NCName"/>
+            <xsd:enumeration value="uriReference"/>
+            <xsd:enumeration value="language"/>
+            <xsd:enumeration value="ID"/>
+            <xsd:enumeration value="IDREF"/>
+            <xsd:enumeration value="IDREFS"/>
+            <xsd:enumeration value="ENTITY"/>
+            <xsd:enumeration value="ENTITIES"/>
+            <xsd:enumeration value="NOTATION"/>
+            <xsd:enumeration value="NMTOKEN"/>
+            <xsd:enumeration value="NMTOKENS"/>
+            <xsd:enumeration value="Enumeration"/>
+            <xsd:enumeration value="SVG"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+    <!--     -->
+    <xsd:simpleType name="DefinitionTypeEnum">
+        <xsd:annotation>
+            <xsd:documentation>
+                Defines the type of the definition of a process segment, operations definition, or operations segment.
+                Defined types are:
+                - Pattern: a segment or definition used as a template for other segments or definitions;
+                - Instance: a segment or definition that may be directly scheduled and tracked.
+            </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Pattern"/>
+            <xsd:enumeration value="Instance"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+    <!--     -->
+    <xsd:simpleType name="DependencyEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="NotFollow"/>
+            <xsd:enumeration value="PossibleParallel"/>
+            <xsd:enumeration value="NotInParallel"/>
+            <xsd:enumeration value="AtStart"/>
+            <xsd:enumeration value="AfterStart"/>
+            <xsd:enumeration value="AfterEnd"/>
+            <xsd:enumeration value="NoLaterAfterStart"/>
+            <xsd:enumeration value="NoEarlierAfterStart"/>
+            <xsd:enumeration value="NoLaterAfterEnd"/>
+            <xsd:enumeration value="NoEarlierAfterEnd"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="EquipmentElementLevelEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Enterprise"/>
+            <xsd:enumeration value="Site"/>
+            <xsd:enumeration value="Area"/>
+            <xsd:enumeration value="ProcessCell"/>
+            <xsd:enumeration value="Unit"/>
+            <xsd:enumeration value="ProductionLine"/>
+            <xsd:enumeration value="WorkCell"/>
+            <xsd:enumeration value="ProductionUnit"/>
+            <xsd:enumeration value="StorageZone"/>
+            <xsd:enumeration value="StorageUnit"/>
+            <xsd:enumeration value="WorkCenter"/>
+            <xsd:enumeration value="WorkUnit"/>
+            <xsd:enumeration value="EquipmentModule"/>
+            <xsd:enumeration value="ControlModule"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="JobOrderCommandEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Start"/>
+            <xsd:enumeration value="Stop"/>
+            <xsd:enumeration value="Hold"/>
+            <xsd:enumeration value="Restart"/>
+            <xsd:enumeration value="Abort"/>
+            <xsd:enumeration value="Reset"/>
+            <xsd:enumeration value="Pause"/>
+            <xsd:enumeration value="Resume"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="JobOrderDispatchStatusEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Waiting"/>
+            <xsd:enumeration value="Pending"/>
+            <xsd:enumeration value="Cancelled"/>
+            <xsd:enumeration value="Dispatched"/>
+            <xsd:enumeration value="Ready"/>
+            <xsd:enumeration value="Running"/>
+            <xsd:enumeration value="Completed"/>
+            <xsd:enumeration value="Aborted"/>
+            <xsd:enumeration value="Held"/>
+            <xsd:enumeration value="Suspended"/>
+            <xsd:enumeration value="Closed"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <!--  LocationType kept in V05 for use with the Production element definitions. Not used in other elements.  -->
+    <!--     -->
+    <xsd:simpleType name="MaterialUseEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Consumable"/>
+            <xsd:enumeration value="Consumed"/>
+            <xsd:enumeration value="Produced"/>
+            <xsd:enumeration value="By-product Produced"/>
+            <xsd:enumeration value="Co-product Produced"/>
+            <xsd:enumeration value="Yield Produced"/>
+            <xsd:enumeration value="Material Consumed"/>
+            <xsd:enumeration value="Material Produced"/>
+            <xsd:enumeration value="Destructive Sample"/>
+            <xsd:enumeration value="Returned Sample"/>
+            <xsd:enumeration value="Retained Sample"/>
+            <xsd:enumeration value="Inventoried"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="OperationsTypeEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Production"/>
+            <xsd:enumeration value="Maintenance"/>
+            <xsd:enumeration value="Quality"/>
+            <xsd:enumeration value="Inventory"/>
+            <xsd:enumeration value="Mixed"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="RelationshipFormEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Permanent"/>
+            <xsd:enumeration value="Transient"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="RelationshipTypeEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Logical"/>
+            <xsd:enumeration value="Physical"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="RequestStateEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Forecast"/>
+            <xsd:enumeration value="Released"/>
+            <xsd:enumeration value="Cancelled"/>
+            <xsd:enumeration value="Ready"/>
+            <xsd:enumeration value="Running"/>
+            <xsd:enumeration value="Completed"/>
+            <xsd:enumeration value="Aborted"/>
+            <xsd:enumeration value="Held"/>
+            <xsd:enumeration value="Paused"/>
+            <xsd:enumeration value="Closed"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="RequiredByRequestedSegmentResponseEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Required"/>
+            <xsd:enumeration value="Optional"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="ResourceLocationTypeEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Operational Location"/>
+            <xsd:enumeration value="Equipment"/>
+            <xsd:enumeration value="Physical Asset"/>
+            <xsd:enumeration value="Description"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="ResourceReferenceTypeEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Personnel"/>
+            <xsd:enumeration value="Personnel Class"/>
+            <xsd:enumeration value="Equipment"/>
+            <xsd:enumeration value="Equipment Class"/>
+            <xsd:enumeration value="Material Class"/>
+            <xsd:enumeration value="Material Definition"/>
+            <xsd:enumeration value="Material Lot"/>
+            <xsd:enumeration value="Material Sublot"/>
+            <xsd:enumeration value="Physical Asset"/>
+            <xsd:enumeration value="Physical Asset Class"/>
+            <xsd:enumeration value="Work Master"/>
+            <xsd:enumeration value="Process Segment"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="ResponseStateEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Ready"/>
+            <xsd:enumeration value="Running"/>
+            <xsd:enumeration value="Completed"/>
+            <xsd:enumeration value="Aborted"/>
+            <xsd:enumeration value="Holding"/>
+            <xsd:enumeration value="Paused"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--     -->
+    <xsd:simpleType name="WorkTypeEnum">
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Work Master"/>
+            <xsd:enumeration value="Work Directive"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+
+    <!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xsd:simpleType name="TransActionCodeEnumerationEnum">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Add"/>
+            <xsd:enumeration value="Change"/>
+            <xsd:enumeration value="Delete"/>
+            <xsd:enumeration value="Replaced"/>
+            <xsd:enumeration value="Accepted"/>
+            <xsd:enumeration value="Modified"/>
+            <xsd:enumeration value="Rejected"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>
