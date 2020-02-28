@@ -111,7 +111,6 @@
             <xsd:enumeration value="timePeriod"/>
             <xsd:enumeration value="duration"/>
             <xsd:enumeration value="date"/>
-            <xsd:enumeration value="dateTime"/>
             <xsd:enumeration value="month"/>
             <xsd:enumeration value="year"/>
             <xsd:enumeration value="century"/>
