@@ -6,7 +6,7 @@
 //
 
 
-package isa95.aps.interfaces.b2mml.enums;
+package org.mesa.xml.b2mml;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>RequestStateEnum的 Java 类。
- *
+ * 
  * <p>以下模式片段指定包含在此类中的预期内容。
  * <p>
  * <pre>
@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "RequestStateEnum")
 @XmlEnum
@@ -68,17 +69,17 @@ public enum RequestStateEnum {
         value = v;
     }
 
+    public String value() {
+        return value;
+    }
+
     public static RequestStateEnum fromValue(String v) {
-        for (RequestStateEnum c : RequestStateEnum.values()) {
+        for (RequestStateEnum c: RequestStateEnum.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
         }
         throw new IllegalArgumentException(v);
-    }
-
-    public String value() {
-        return value;
     }
 
 }

@@ -6,7 +6,7 @@
 //
 
 
-package isa95.aps.interfaces.b2mml.enums;
+package org.mesa.xml.b2mml;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>ResourceLocationTypeEnum的 Java 类。
- *
+ * 
  * <p>以下模式片段指定包含在此类中的预期内容。
  * <p>
  * <pre>
@@ -24,11 +24,12 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="Operational Location"/>
  *     &lt;enumeration value="Equipment"/>
  *     &lt;enumeration value="Physical Asset"/>
- *     &lt;enumeration value="DescriptionType"/>
+ *     &lt;enumeration value="Description"/>
  *     &lt;enumeration value="Other"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "ResourceLocationTypeEnum")
 @XmlEnum
@@ -40,8 +41,8 @@ public enum ResourceLocationTypeEnum {
     EQUIPMENT("Equipment"),
     @XmlEnumValue("Physical Asset")
     PHYSICAL_ASSET("Physical Asset"),
-    @XmlEnumValue("DescriptionType")
-    DESCRIPTION("DescriptionType"),
+    @XmlEnumValue("Description")
+    DESCRIPTION("Description"),
     @XmlEnumValue("Other")
     OTHER("Other");
     private final String value;
@@ -50,17 +51,17 @@ public enum ResourceLocationTypeEnum {
         value = v;
     }
 
+    public String value() {
+        return value;
+    }
+
     public static ResourceLocationTypeEnum fromValue(String v) {
-        for (ResourceLocationTypeEnum c : ResourceLocationTypeEnum.values()) {
+        for (ResourceLocationTypeEnum c: ResourceLocationTypeEnum.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
         }
         throw new IllegalArgumentException(v);
-    }
-
-    public String value() {
-        return value;
     }
 
 }

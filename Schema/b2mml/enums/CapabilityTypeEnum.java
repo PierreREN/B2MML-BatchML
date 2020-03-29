@@ -6,7 +6,7 @@
 //
 
 
-package isa95.aps.interfaces.b2mml.enums;
+package org.mesa.xml.b2mml;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>CapabilityTypeEnum的 Java 类。
- *
+ * 
  * <p>以下模式片段指定包含在此类中的预期内容。
  * <p>
  * <pre>
@@ -31,6 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "CapabilityTypeEnum")
 @XmlEnum
@@ -56,17 +57,17 @@ public enum CapabilityTypeEnum {
         value = v;
     }
 
+    public String value() {
+        return value;
+    }
+
     public static CapabilityTypeEnum fromValue(String v) {
-        for (CapabilityTypeEnum c : CapabilityTypeEnum.values()) {
+        for (CapabilityTypeEnum c: CapabilityTypeEnum.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
         }
         throw new IllegalArgumentException(v);
-    }
-
-    public String value() {
-        return value;
     }
 
 }
